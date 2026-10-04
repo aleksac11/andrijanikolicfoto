@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Andrija Nikolić Photography</title>
+<meta name="description" content="Andrija Nikolić – fotograf. Venčanja, portreti, komercijalna i pejzažna fotografija. Beograd i cela Srbija.">
+<meta property="og:title" content="Andrija Nikolić Photography">
+<meta property="og:description" content="Venčanja, portreti, komercijalna i pejzažna fotografija.">
+<meta property="og:image" content="images/logo.png">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=DM+Mono:wght@400&display=swap">
+<style>
+/* Layout: quiet gallery-wall page — wide margins, one olive band per section break, photos carry the colour */
+:root{
+  --paper:#F2EFE7;      /* page ground, from the logo's cream */
+  --paper-2:#E8E3D6;    /* raised surfaces */
+  --ink:#2B2A24;        /* text */
+  --ink-soft:#6A675B;   /* secondary text */
+  --olive:#625F4E;      /* logo disc */
+  --olive-ink:#EFEADB;  /* text on olive */
+  --line:rgba(43,42,36,.14);
+  --focus:#8A7A4E;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1280px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1C1B17;--paper-2:#26251F;--ink:#ECE7DA;--ink-soft:#A9A493;--olive:#4A483B;--olive-ink:#EFEADB;--line:rgba(236,231,218,.14);--focus:#CDBF92;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1C1B17;--paper-2:#26251F;--ink:#ECE7DA;--ink-soft:#A9A493;--olive:#4A483B;--olive-ink:#EFEADB;--line:rgba(236,231,218,.14);--focus:#CDBF92;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font:300 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.08}
+p{margin:0}
+.eyebrow{font:400 12px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--ink-soft)}
+.btn{display:inline-flex;align-items:center;gap:.6em;font:400 13px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .25s,color .25s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid{background:var(--olive);border-color:var(--olive);color:var(--olive-ink)}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;margin-right:auto}
+.brand img{width:48px;height:48px;display:block}
+.brand span{font-family:var(--display);font-size:19px;letter-spacing:.06em;line-height:1.1}
+.brand small{display:block;font:400 10px/1.4 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft)}
+nav.links{display:flex;gap:28px}
+nav.links a{font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);transition:color .2s}
+nav.links a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line)}
+.lang button{font:500 11px/1 var(--body);letter-spacing:.14em;padding:9px 11px;background:none;border:0;color:var(--ink-soft);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--olive);color:var(--olive-ink)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:42px;height:38px;cursor:pointer;font-size:18px}
+@media (max-width:860px){
+  nav.links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gutter) 16px}
+  nav.links.open{display:flex}
+  nav.links a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:block}
+  .brand span{font-size:16px}
+}
+@media (max-width:420px){.brand small{display:none}.brand img{width:40px;height:40px}}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:end;padding-block:clamp(40px,7vw,96px) clamp(48px,7vw,104px)}
+.hero h1{font-size:clamp(44px,7.2vw,104px);letter-spacing:-.01em;margin-block:22px 26px}
+.hero h1 em{font-style:italic;color:var(--olive)}
+:root[data-theme="dark"] .hero h1 em{color:var(--ink-soft)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1 em{color:var(--ink-soft)}}
+.hero .lede{max-width:34ch;font-size:19px;color:var(--ink-soft)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero figure{margin:0;position:relative}
+.hero-photo{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:14px;align-items:end}
+.hero-photo .frame:nth-child(2){margin-bottom:12%}
+.frame{position:relative;overflow:hidden;background:var(--paper-2)}
+.frame canvas{display:block;width:100%;height:auto}
+.hero figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;flex-wrap:wrap}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;align-items:start}}
+
+/* Section scaffolding */
+section{scroll-margin-top:80px}
+.sec{padding-block:clamp(64px,9vw,128px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2{font-size:clamp(36px,5vw,64px);margin-top:14px}
+.sec-head p{color:var(--ink-soft);max-width:46ch}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr}}
+
+/* Gallery */
+.filters{display:flex;flex-wrap:wrap;gap:6px 26px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.filters button{background:none;border:0;border-bottom:1px solid transparent;margin-bottom:-1px;padding:10px 0 14px;font:400 13px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer}
+.filters button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.grid{columns:3 300px;column-gap:18px}
+.tile{break-inside:avoid;margin:0 0 18px;cursor:zoom-in;display:block;width:100%;padding:0;border:0;background:none;text-align:left;color:inherit;font:inherit}
+.tile .frame canvas{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .frame canvas{transform:scale(1.025)}
+.tile .cap{display:flex;flex-direction:column;gap:2px;padding-top:10px}
+.tile .cap span:first-child{font-size:14px}
+.note{margin-top:20px;padding:14px 18px;border:1px dashed var(--line);color:var(--ink-soft);font-size:14px}
+
+/* Lightbox */
+dialog.lb{border:0;padding:0;max-width:none;max-height:none;width:100%;height:100%;background:rgba(18,17,14,.94);color:#ECE7DA}
+dialog.lb::backdrop{background:rgba(18,17,14,.94)}
+.lb-inner{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:16px var(--gutter)}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lb-stage{display:flex;align-items:center;justify-content:center;min-height:0;padding-block:14px}
+.lb-stage canvas{max-width:100%;max-height:100%;width:auto;height:auto;display:block}
+.lb button{background:none;border:1px solid rgba(236,231,218,.3);color:#ECE7DA;font:400 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;padding:11px 16px;cursor:pointer}
+.lb button:hover{background:rgba(236,231,218,.1)}
+.lb .mono{color:#A9A493}
+.lb-nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Services — olive band */
+.band{background:var(--olive);color:var(--olive-ink)}
+.band .eyebrow,.band .sec-head p{color:color-mix(in srgb,var(--olive-ink) 70%,transparent)}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(239,234,219,.22)}
+.svc{padding:36px 36px 40px 0;border-bottom:1px solid rgba(239,234,219,.22);display:flex;flex-direction:column;gap:16px;min-width:0}
+.svc:nth-child(2n){padding-left:36px;padding-right:0;border-left:1px solid rgba(239,234,219,.22)}
+.svc h3{font-size:clamp(28px,3vw,38px)}
+.svc .tag{font-family:var(--mono);font-size:12px;color:color-mix(in srgb,var(--olive-ink) 65%,transparent)}
+.svc p{color:color-mix(in srgb,var(--olive-ink) 82%,transparent);max-width:48ch}
+.svc ul{list-style:none;padding:0;margin:0;display:grid;gap:7px;font-size:15px}
+.svc li{display:flex;gap:12px}
+.svc li::before{content:"";flex:none;width:14px;height:1px;background:currentColor;opacity:.5;margin-top:.8em}
+.svc .btn{margin-top:auto;align-self:flex-start;border-color:rgba(239,234,219,.5);color:var(--olive-ink)}
+.svc .btn:hover{background:var(--olive-ink);color:var(--olive)}
+@media (max-width:760px){.services{grid-template-columns:1fr}.svc,.svc:nth-child(2n){padding:30px 0;border-left:0}}
+
+.process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:clamp(48px,6vw,80px)}
+.step{min-width:0;border-top:1px solid rgba(239,234,219,.35);padding-top:16px;display:grid;gap:8px}
+.step .n{font-family:var(--display);font-style:italic;font-size:30px;line-height:1}
+.step b{font-weight:500;font-size:15px}
+.step p{font-size:14px;color:color-mix(in srgb,var(--olive-ink) 75%,transparent)}
+@media (max-width:960px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.process{grid-template-columns:1fr}}
+
+/* Testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.quote{min-width:0;display:flex;flex-direction:column;gap:18px}
+.quote blockquote{margin:0;font-family:var(--display);font-size:clamp(21px,2vw,25px);line-height:1.35}
+.quote blockquote::before{content:"“";display:block;font-size:64px;line-height:.6;color:var(--olive);margin-bottom:10px}
+.quote footer{display:flex;flex-direction:column;gap:3px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.quote footer b{font-weight:500;font-size:15px}
+.sample{align-self:flex-start;font-family:var(--mono);font-size:11px;padding:3px 8px;border:1px dashed var(--line);color:var(--ink-soft)}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.contact h2{font-size:clamp(36px,5vw,64px);margin-block:14px 20px}
+.contact .intro p{color:var(--ink-soft);max-width:36ch}
+.details{margin-top:36px;display:grid;gap:0;border-top:1px solid var(--line)}
+.details div{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.details dt{margin:0}
+.details dd{margin:0;overflow-wrap:anywhere;user-select:all}
+.copy{background:none;border:0;color:var(--ink-soft);font:400 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.copy:hover{color:var(--ink)}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;align-content:start}
+.field{display:grid;gap:8px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+input,select,textarea{font:300 17px/1.4 var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;border-radius:0;width:100%}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:24px}
+select option{background:var(--paper);color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--ink)}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-bottom-color:#A4553F}
+.err{font-size:13px;color:#A4553F;min-height:0}
+.send{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px}
+.status{grid-column:1/-1;font-size:14px;color:var(--ink-soft)}
+.preview{grid-column:1/-1;font-family:var(--mono);font-size:12.5px;white-space:pre-wrap;background:var(--paper-2);padding:16px 18px;color:var(--ink-soft)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}.details div{grid-template-columns:90px minmax(0,1fr) auto}}
+
+/* Footer */
+footer.site{border-top:1px solid var(--line)}
+footer.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-block:36px}
+footer.site img{width:64px;height:64px;display:block}
+footer.site nav{display:flex;flex-wrap:wrap;gap:22px}
+footer.site nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Andrija Nikolić Photography">
+      <img src="images/logo.png" alt="">
+      <span>Andrija Nikolić<small>photography</small></span>
+    </a>
+    <nav class="links" id="nav">
+      <a href="#galerija" data-i18n="nav.gallery">Galerija</a>
+      <a href="#usluge" data-i18n="nav.services">Usluge</a>
+      <a href="#utisci" data-i18n="nav.reviews">Utisci</a>
+      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Jezik / Language">
+      <button type="button" data-lang="sr" aria-pressed="true">SR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Meni">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Fotograf · Beograd i cela Srbija</p>
+        <h1 data-i18n="hero.title">Svetlo koje <em>pamti</em> trenutke.</h1>
+        <p class="lede" data-i18n="hero.lede">Venčanja, portreti, komercijalna i pejzažna fotografija. Mirno, nenametljivo, sa pažnjom prema detalju i prirodnom svetlu.</p>
+        <div class="actions">
+          <a class="btn solid" href="#kontakt" data-i18n="hero.cta">Zakaži fotografisanje</a>
+          <a class="btn" href="#galerija" data-i18n="hero.cta2">Pogledaj radove</a>
+        </div>
+      </div>
+      <figure>
+        <div class="hero-photo">
+          <div class="frame"><canvas data-kind="portrait" data-seed="11" data-ratio="1.32"></canvas></div>
+          <div class="frame"><canvas data-kind="landscape" data-seed="4" data-ratio="1.25"></canvas></div>
+        </div>
+        <figcaption><span class="mono">85 mm · f/1.8 · 1/250 s · ISO 200</span><span class="mono">35 mm · f/8 · 1/125 s · ISO 100</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="galerija" class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow" data-i18n="gal.eyebrow">Portfolio</p><h2 data-i18n="gal.title">Izabrani radovi</h2></div>
+        <p data-i18n="gal.lede">Svaka priča traži drugačiji pristup. Izaberite kategoriju i kliknite na fotografiju za veći prikaz.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Kategorije">
+        <button type="button" data-filter="all" aria-pressed="true" data-i18n="cat.all">Sve</button>
+        <button type="button" data-filter="wedding" aria-pressed="false" data-i18n="cat.wedding">Venčanja i događaji</button>
+        <button type="button" data-filter="portrait" aria-pressed="false" data-i18n="cat.portrait">Portreti</button>
+        <button type="button" data-filter="commercial" aria-pressed="false" data-i18n="cat.commercial">Komercijalno</button>
+        <button type="button" data-filter="landscape" aria-pressed="false" data-i18n="cat.landscape">Pejzaž i umetnost</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="note" data-i18n="gal.note">Privremeni prikaz: ovde dolaze Andrijine fotografije. Trenutno su prikazane ilustracije koje čuvaju raspored galerije.</p>
+    </div>
+  </section>
+
+  <section id="usluge" class="sec band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow" data-i18n="svc.eyebrow">Usluge</p><h2 data-i18n="svc.title">Šta mogu da snimim za vas</h2></div>
+        <p data-i18n="svc.lede">Svaki projekat se dogovara pojedinačno. Pošaljite upit sa datumom i idejom, i dobićete ponudu prilagođenu vama u roku od 48 sati.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="tag" data-i18n="svc.w.tag">Ceo dan ili po satu</span>
+          <h3 data-i18n="cat.wedding">Venčanja i događaji</h3>
+          <p data-i18n="svc.w.p">Od pripreme do poslednje igre. Dokumentarni pristup koji beleži emocije onako kako su se desile, bez nameštanja.</p>
+          <ul><li data-i18n="svc.w.1">Pripreme, ceremonija, slavlje</li><li data-i18n="svc.w.2">Krštenja, rođendani, proslave</li><li data-i18n="svc.w.3">Online galerija za goste</li><li data-i18n="svc.w.4">Opciono: foto-knjiga</li></ul>
+          <a class="btn" href="#kontakt" data-pick="wedding" data-i18n="svc.ask">Zatraži ponudu</a>
+        </article>
+        <article class="svc">
+          <span class="tag" data-i18n="svc.p.tag">Studio ili napolju · 1–2 h</span>
+          <h3 data-i18n="cat.portrait">Portreti</h3>
+          <p data-i18n="svc.p.p">Lični, porodični, trudnički i dečiji portreti. Opuštena atmosfera i vođenje kroz poziranje, da se osećate prirodno.</p>
+          <ul><li data-i18n="svc.p.1">Pomoć oko odabira lokacije i garderobe</li><li data-i18n="svc.p.2">Pažljivo obrađene fotografije</li><li data-i18n="svc.p.3">Poslovni portreti i profilne fotografije</li></ul>
+          <a class="btn" href="#kontakt" data-pick="portrait" data-i18n="svc.ask">Zatraži ponudu</a>
+        </article>
+        <article class="svc">
+          <span class="tag" data-i18n="svc.c.tag">Za brendove i firme</span>
+          <h3 data-i18n="svc.c.h">Komercijalna fotografija</h3>
+          <p data-i18n="svc.c.p">Proizvodi, hrana, enterijeri i timovi. Fotografije spremne za sajt, društvene mreže, kataloge i štampu.</p>
+          <ul><li data-i18n="svc.c.1">Proizvodi i e-commerce</li><li data-i18n="svc.c.2">Restorani, hoteli, enterijeri</li><li data-i18n="svc.c.3">Licenca za komercijalnu upotrebu</li></ul>
+          <a class="btn" href="#kontakt" data-pick="commercial" data-i18n="svc.ask">Zatraži ponudu</a>
+        </article>
+        <article class="svc">
+          <span class="tag" data-i18n="svc.l.tag">Printovi i projekti</span>
+          <h3 data-i18n="cat.landscape">Pejzaž i umetnost</h3>
+          <p data-i18n="svc.l.p">Priroda, putovanja i autorski projekti. Fotografije dostupne kao umetnički printovi za dom i poslovni prostor.</p>
+          <ul><li data-i18n="svc.l.1">Printovi na muzejskom papiru</li><li data-i18n="svc.l.2">Fotografije za enterijer po meri</li><li data-i18n="svc.l.3">Saradnja na izložbama i publikacijama</li></ul>
+          <a class="btn" href="#kontakt" data-pick="landscape" data-i18n="svc.ask">Zatraži ponudu</a>
+        </article>
+      </div>
+
+      <div class="process">
+        <div class="step"><span class="n">1</span><b data-i18n="pr.1.h">Upit</b><p data-i18n="pr.1.p">Pošaljete datum, lokaciju i ideju.</p></div>
+        <div class="step"><span class="n">2</span><b data-i18n="pr.2.h">Dogovor</b><p data-i18n="pr.2.p">Kratak razgovor i ponuda po meri.</p></div>
+        <div class="step"><span class="n">3</span><b data-i18n="pr.3.h">Fotografisanje</b><p data-i18n="pr.3.p">Opušteno, uz vođenje kad zatreba.</p></div>
+        <div class="step"><span class="n">4</span><b data-i18n="pr.4.h">Obrada</b><p data-i18n="pr.4.p">Odabir i ručna obrada svake fotografije.</p></div>
+        <div class="step"><span class="n">5</span><b data-i18n="pr.5.h">Isporuka</b><p data-i18n="pr.5.p">Online galerija, a po želji i printovi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="utisci" class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow" data-i18n="rv.eyebrow">Utisci klijenata</p><h2 data-i18n="rv.title">Šta kažu oni koje sam fotografisao</h2></div>
+        <p data-i18n="rv.lede">Mesta za stvarne utiske. Zamenite ih rečima klijenata uz njihovu saglasnost.</p>
+      </div>
+      <div class="quotes">
+        <figure class="quote">
+          <span class="sample" data-i18n="rv.sample">Primer utiska</span>
+          <blockquote data-i18n="rv.1.q">Ceo dan smo zaboravili da je fotograf tu, a onda smo u galeriji pronašli trenutke koje nismo ni primetili.</blockquote>
+          <footer><b data-i18n="rv.1.n">Ime i prezime</b><span class="mono" data-i18n="rv.1.m">Venčanje · Beograd</span></footer>
+        </figure>
+        <figure class="quote">
+          <span class="sample" data-i18n="rv.sample">Primer utiska</span>
+          <blockquote data-i18n="rv.2.q">Nikad nisam volela da se slikam. Prvi put imam portrete na kojima se prepoznajem i koji mi se dopadaju.</blockquote>
+          <footer><b data-i18n="rv.2.n">Ime i prezime</b><span class="mono" data-i18n="rv.2.m">Portret · Novi Sad</span></footer>
+        </figure>
+        <figure class="quote">
+          <span class="sample" data-i18n="rv.sample">Primer utiska</span>
+          <blockquote data-i18n="rv.3.q">Fotografije proizvoda su stigle pre roka i odmah su podigle izgled naše prodavnice.</blockquote>
+          <footer><b data-i18n="rv.3.n">Naziv firme</b><span class="mono" data-i18n="rv.3.m">Komercijalno · proizvodi</span></footer>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="sec" style="background:var(--paper-2)">
+    <div class="wrap contact">
+      <div class="intro">
+        <p class="eyebrow" data-i18n="ct.eyebrow">Kontakt</p>
+        <h2 data-i18n="ct.title">Ispričajte mi vašu ideju</h2>
+        <p data-i18n="ct.lede">Popunite formu i pošaljite je preko WhatsApp-a ili email-a. Odgovaram u roku od 48 sati.</p>
+        <dl class="details">
+          <div><dt class="eyebrow" data-i18n="ct.phone">Telefon</dt><dd id="phoneTxt">+381 60 123 4567</dd><button class="copy" type="button" data-copy="phoneTxt" data-i18n="ct.copy">Kopiraj</button></div>
+          <div><dt class="eyebrow">Email</dt><dd id="mailTxt">kontakt@andrijanikolic.rs</dd><button class="copy" type="button" data-copy="mailTxt" data-i18n="ct.copy">Kopiraj</button></div>
+          <div><dt class="eyebrow">Instagram</dt><dd><a href="https://www.instagram.com/andrijanikolic.photography/" target="_blank" rel="noopener">@andrijanikolic.photography</a></dd><span></span></div>
+          <div><dt class="eyebrow" data-i18n="ct.where">Lokacija</dt><dd data-i18n="ct.whereVal">Beograd · putujem po celoj Srbiji i regionu</dd><span></span></div>
+        </dl>
+      </div>
+
+      <form id="form" novalidate>
+        <div class="field"><label for="f-name" data-i18n="f.name">Ime i prezime</label><input id="f-name" name="name" autocomplete="name" required><span class="err" hidden></span></div>
+        <div class="field"><label for="f-contact" data-i18n="f.contact">Telefon ili email</label><input id="f-contact" name="contact" autocomplete="email" required><span class="err" hidden></span></div>
+        <div class="field"><label for="f-type" data-i18n="f.type">Vrsta fotografisanja</label>
+          <select id="f-type" name="type" required>
+            <option value="" data-i18n="f.choose">Izaberite…</option>
+            <option value="wedding" data-i18n="cat.wedding">Venčanja i događaji</option>
+            <option value="portrait" data-i18n="cat.portrait">Portreti</option>
+            <option value="commercial" data-i18n="svc.c.h">Komercijalna fotografija</option>
+            <option value="landscape" data-i18n="cat.landscape">Pejzaž i umetnost</option>
+          </select><span class="err" hidden></span></div>
+        <div class="field"><label for="f-date" data-i18n="f.date">Datum (okvirno)</label><input id="f-date" name="date" type="date"></div>
+        <div class="field full"><label for="f-place" data-i18n="f.place">Lokacija</label><input id="f-place" name="place"></div>
+        <div class="field full"><label for="f-msg" data-i18n="f.msg">Poruka</label><textarea id="f-msg" name="msg" required></textarea><span class="err" hidden></span></div>
+        <div class="send">
+          <a class="btn solid" id="sendWa" href="#" target="_blank" rel="noopener" data-i18n="f.wa">Pošalji na WhatsApp</a>
+          <a class="btn" id="sendMail" href="#" data-i18n="f.mail">Pošalji email</a>
+          <button class="copy" type="button" id="copyMsg" data-i18n="f.copy">Kopiraj poruku</button>
+        </div>
+        <p class="status" id="status" hidden></p>
+        <pre class="preview" id="preview" hidden></pre>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <img src="images/logo.png" alt="Andrija Nikolić photography">
+    <nav><a href="#galerija" data-i18n="nav.gallery">Galerija</a><a href="#usluge" data-i18n="nav.services">Usluge</a><a href="#kontakt" data-i18n="nav.contact">Kontakt</a><a href="https://www.instagram.com/andrijanikolic.photography/" target="_blank" rel="noopener">Instagram</a></nav>
+    <p class="mono">© 2026 Andrija Nikolić Photography</p>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Fotografija">
+  <div class="lb-inner">
+    <div class="lb-bar"><span class="mono" id="lbCount"></span><button type="button" id="lbClose" data-i18n="lb.close">Zatvori</button></div>
+    <div class="lb-stage"><canvas id="lbCanvas"></canvas></div>
+    <div class="lb-nav"><button type="button" id="lbPrev" data-i18n="lb.prev">← Prethodna</button><span class="mono" id="lbCap"></span><button type="button" id="lbNext" data-i18n="lb.next">Sledeća →</button></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+/* ---------- Contact placeholders (replace with real data) ---------- */
+const PHONE_WA = "381601234567";
+const EMAIL = "kontakt@andrijanikolic.rs";
+
+/* ---------- Translations ---------- */
+const T = {
+sr:{
+ "nav.gallery":"Galerija","nav.services":"Usluge","nav.reviews":"Utisci","nav.contact":"Kontakt",
+ "hero.eyebrow":"Fotograf · Beograd i cela Srbija","hero.title":"Svetlo koje <em>pamti</em> trenutke.",
+ "hero.lede":"Venčanja, portreti, komercijalna i pejzažna fotografija. Mirno, nenametljivo, sa pažnjom prema detalju i prirodnom svetlu.",
+ "hero.cta":"Zakaži fotografisanje","hero.cta2":"Pogledaj radove",
+ "gal.eyebrow":"Portfolio","gal.title":"Izabrani radovi","gal.lede":"Svaka priča traži drugačiji pristup. Izaberite kategoriju i kliknite na fotografiju za veći prikaz.",
+ "gal.note":"Privremeni prikaz: ovde dolaze Andrijine fotografije. Trenutno su prikazane ilustracije koje čuvaju raspored galerije.",
+ "cat.all":"Sve","cat.wedding":"Venčanja i događaji","cat.portrait":"Portreti","cat.commercial":"Komercijalno","cat.landscape":"Pejzaž i umetnost",
+ "svc.eyebrow":"Usluge","svc.title":"Šta mogu da snimim za vas","svc.lede":"Svaki projekat se dogovara pojedinačno. Pošaljite upit sa datumom i idejom, i dobićete ponudu prilagođenu vama u roku od 48 sati.",
+ "svc.ask":"Zatraži ponudu",
+ "svc.w.tag":"Ceo dan ili po satu","svc.w.p":"Od pripreme do poslednje igre. Dokumentarni pristup koji beleži emocije onako kako su se desile, bez nameštanja.",
+ "svc.w.1":"Pripreme, ceremonija, slavlje","svc.w.2":"Krštenja, rođendani, proslave","svc.w.3":"Online galerija za goste","svc.w.4":"Opciono: foto-knjiga",
+ "svc.p.tag":"Studio ili napolju · 1–2 h","svc.p.p":"Lični, porodični, trudnički i dečiji portreti. Opuštena atmosfera i vođenje kroz poziranje, da se osećate prirodno.",
+ "svc.p.1":"Pomoć oko odabira lokacije i garderobe","svc.p.2":"Pažljivo obrađene fotografije","svc.p.3":"Poslovni portreti i profilne fotografije",
+ "svc.c.tag":"Za brendove i firme","svc.c.h":"Komercijalna fotografija","svc.c.p":"Proizvodi, hrana, enterijeri i timovi. Fotografije spremne za sajt, društvene mreže, kataloge i štampu.",
+ "svc.c.1":"Proizvodi i e-commerce","svc.c.2":"Restorani, hoteli, enterijeri","svc.c.3":"Licenca za komercijalnu upotrebu",
+ "svc.l.tag":"Printovi i projekti","svc.l.p":"Priroda, putovanja i autorski projekti. Fotografije dostupne kao umetnički printovi za dom i poslovni prostor.",
+ "svc.l.1":"Printovi na muzejskom papiru","svc.l.2":"Fotografije za enterijer po meri","svc.l.3":"Saradnja na izložbama i publikacijama",
+ "pr.1.h":"Upit","pr.1.p":"Pošaljete datum, lokaciju i ideju.","pr.2.h":"Dogovor","pr.2.p":"Kratak razgovor i ponuda po meri.",
+ "pr.3.h":"Fotografisanje","pr.3.p":"Opušteno, uz vođenje kad zatreba.","pr.4.h":"Obrada","pr.4.p":"Odabir i ručna obrada svake fotografije.",
+ "pr.5.h":"Isporuka","pr.5.p":"Online galerija, a po želji i printovi.",
+ "rv.eyebrow":"Utisci klijenata","rv.title":"Šta kažu oni koje sam fotografisao","rv.lede":"Mesta za stvarne utiske. Zamenite ih rečima klijenata uz njihovu saglasnost.",
+ "rv.sample":"Primer utiska",
+ "rv.1.q":"Ceo dan smo zaboravili da je fotograf tu, a onda smo u galeriji pronašli trenutke koje nismo ni primetili.","rv.1.n":"Ime i prezime","rv.1.m":"Venčanje · Beograd",
+ "rv.2.q":"Nikad nisam volela da se slikam. Prvi put imam portrete na kojima se prepoznajem i koji mi se dopadaju.","rv.2.n":"Ime i prezime","rv.2.m":"Portret · Novi Sad",
+ "rv.3.q":"Fotografije proizvoda su stigle pre roka i odmah su podigle izgled naše prodavnice.","rv.3.n":"Naziv firme","rv.3.m":"Komercijalno · proizvodi",
+ "ct.eyebrow":"Kontakt","ct.title":"Ispričajte mi vašu ideju","ct.lede":"Popunite formu i pošaljite je preko WhatsApp-a ili email-a. Odgovaram u roku od 48 sati.",
+ "ct.phone":"Telefon","ct.where":"Lokacija","ct.whereVal":"Beograd · putujem po celoj Srbiji i regionu","ct.copy":"Kopiraj","ct.copied":"Kopirano",
+ "f.name":"Ime i prezime","f.contact":"Telefon ili email","f.type":"Vrsta fotografisanja","f.choose":"Izaberite…","f.date":"Datum (okvirno)",
+ "f.place":"Lokacija","f.msg":"Poruka","f.wa":"Pošalji na WhatsApp","f.mail":"Pošalji email","f.copy":"Kopiraj poruku",
+ "f.req":"Obavezno polje","f.fix":"Popunite označena polja pa pokušajte ponovo.",
+ "f.waOk":"WhatsApp se otvara u novoj kartici sa vašom porukom. Ako se ne otvori, kopirajte poruku i pošaljite je na +381 60 123 4567.",
+ "f.mailOk":"Ako se email program ne otvori, kopirajte poruku ispod i pošaljite je na "+EMAIL+".",
+ "f.copied":"Poruka je kopirana.","f.copyFail":"Kopiranje nije uspelo. Označite tekst ispod i kopirajte ga ručno.",
+ "m.hello":"Zdravo Andrija,","m.name":"Ime","m.contact":"Kontakt","m.type":"Fotografisanje","m.date":"Datum","m.place":"Lokacija","m.subject":"Upit za fotografisanje",
+ "lb.close":"Zatvori","lb.prev":"← Prethodna","lb.next":"Sledeća →"
+},
+en:{
+ "nav.gallery":"Gallery","nav.services":"Services","nav.reviews":"Reviews","nav.contact":"Contact",
+ "hero.eyebrow":"Photographer · Belgrade and all of Serbia","hero.title":"Light that <em>remembers</em> moments.",
+ "hero.lede":"Weddings, portraits, commercial and landscape photography. Calm, unobtrusive, with care for detail and natural light.",
+ "hero.cta":"Book a session","hero.cta2":"View work",
+ "gal.eyebrow":"Portfolio","gal.title":"Selected work","gal.lede":"Every story needs a different approach. Pick a category and click a photo to see it larger.",
+ "gal.note":"Preview layout: Andrija's photographs go here. The images shown are illustrations that hold the gallery layout.",
+ "cat.all":"All","cat.wedding":"Weddings & events","cat.portrait":"Portraits","cat.commercial":"Commercial","cat.landscape":"Landscape & fine art",
+ "svc.eyebrow":"Services","svc.title":"What I can photograph for you","svc.lede":"Every project is arranged individually. Send your date and idea, and you'll get a tailored quote within 48 hours.",
+ "svc.ask":"Request a quote",
+ "svc.w.tag":"Full day or hourly","svc.w.p":"From getting ready to the last dance. A documentary approach that captures emotions as they happened, without staging.",
+ "svc.w.1":"Getting ready, ceremony, celebration","svc.w.2":"Christenings, birthdays, parties","svc.w.3":"Online gallery for guests","svc.w.4":"Optional: photo book",
+ "svc.p.tag":"Studio or outdoors · 1–2 h","svc.p.p":"Personal, family, maternity and children's portraits. A relaxed atmosphere and gentle posing guidance so you feel natural.",
+ "svc.p.1":"Help choosing location and outfits","svc.p.2":"Carefully edited photographs","svc.p.3":"Business headshots and profile photos",
+ "svc.c.tag":"For brands and businesses","svc.c.h":"Commercial photography","svc.c.p":"Products, food, interiors and teams. Images ready for your website, social media, catalogues and print.",
+ "svc.c.1":"Products and e-commerce","svc.c.2":"Restaurants, hotels, interiors","svc.c.3":"Licence for commercial use",
+ "svc.l.tag":"Prints and projects","svc.l.p":"Nature, travel and personal projects. Photographs available as fine-art prints for homes and offices.",
+ "svc.l.1":"Prints on museum-grade paper","svc.l.2":"Custom photographs for interiors","svc.l.3":"Exhibitions and publications",
+ "pr.1.h":"Enquiry","pr.1.p":"You send the date, location and idea.","pr.2.h":"Agreement","pr.2.p":"A short call and a tailored quote.",
+ "pr.3.h":"Session","pr.3.p":"Relaxed, with guidance when needed.","pr.4.h":"Editing","pr.4.p":"Selection and hand-editing of every frame.",
+ "pr.5.h":"Delivery","pr.5.p":"Online gallery, and prints if you like.",
+ "rv.eyebrow":"Client reviews","rv.title":"What people I've photographed say","rv.lede":"Space for real reviews. Replace these with your clients' words, with their consent.",
+ "rv.sample":"Sample review",
+ "rv.1.q":"We forgot the photographer was there all day, and then found moments in the gallery we hadn't even noticed.","rv.1.n":"Full name","rv.1.m":"Wedding · Belgrade",
+ "rv.2.q":"I never liked being photographed. For the first time I have portraits where I recognise myself and like what I see.","rv.2.n":"Full name","rv.2.m":"Portrait · Novi Sad",
+ "rv.3.q":"The product photos arrived ahead of schedule and instantly lifted the look of our shop.","rv.3.n":"Company name","rv.3.m":"Commercial · products",
+ "ct.eyebrow":"Contact","ct.title":"Tell me about your idea","ct.lede":"Fill in the form and send it via WhatsApp or email. I reply within 48 hours.",
+ "ct.phone":"Phone","ct.where":"Location","ct.whereVal":"Belgrade · available across Serbia and the region","ct.copy":"Copy","ct.copied":"Copied",
+ "f.name":"Full name","f.contact":"Phone or email","f.type":"Type of session","f.choose":"Choose…","f.date":"Date (approximate)",
+ "f.place":"Location","f.msg":"Message","f.wa":"Send via WhatsApp","f.mail":"Send email","f.copy":"Copy message",
+ "f.req":"Required field","f.fix":"Fill in the marked fields and try again.",
+ "f.waOk":"WhatsApp is opening in a new tab with your message. If it doesn't, copy the message and send it to +381 60 123 4567.",
+ "f.mailOk":"If your email app doesn't open, copy the message below and send it to "+EMAIL+".",
+ "f.copied":"Message copied.","f.copyFail":"Copy didn't work. Select the text below and copy it manually.",
+ "m.hello":"Hi Andrija,","m.name":"Name","m.contact":"Contact","m.type":"Session","m.date":"Date","m.place":"Location","m.subject":"Photography enquiry",
+ "lb.close":"Close","lb.prev":"← Previous","lb.next":"Next →"
+}};
+let lang = "sr";
+try{ const s = localStorage.getItem("an-lang"); if(s==="en"||s==="sr") lang=s; }catch(e){}
+const t = k => (T[lang][k] ?? T.sr[k] ?? k);
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ el.innerHTML = t(el.dataset.i18n); });
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.lang===lang)));
+  renderCaptions(); updateLinks();
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{
+  lang=b.dataset.lang; try{localStorage.setItem("an-lang",lang)}catch(e){} applyLang();
+}));
+
+/* mobile menu */
+const nav=document.getElementById("nav"), menuBtn=document.getElementById("menuBtn");
+menuBtn.addEventListener("click",()=>{const o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(o));});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");}));
+
+/* ---------- Placeholder photo painter ---------- */
+function rng(seed){let a=seed*9301+49297;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function grad(ctx,x0,y0,x1,y1,stops){const g=ctx.createLinearGradient(x0,y0,x1,y1);stops.forEach(([o,c])=>g.addColorStop(o,c));return g;}
+function radial(ctx,x,y,r,stops){const g=ctx.createRadialGradient(x,y,0,x,y,r);stops.forEach(([o,c])=>g.addColorStop(o,c));return g;}
+function mix(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t));}
+const rgb=(c,a=1)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
+
+function landscape(ctx,w,h,r){
+  const pal=[[[222,208,184],[152,150,136],[46,48,40]],[[205,212,214],[140,150,150],[32,38,38]],[[232,200,170],[166,138,120],[48,40,36]]][Math.floor(r()*3)];
+  ctx.fillStyle=grad(ctx,0,0,0,h,[[0,rgb(mix(pal[0],[255,255,255],.25))],[.55,rgb(pal[0])],[1,rgb(pal[1])]]);ctx.fillRect(0,0,w,h);
+  const sx=w*(.25+r()*.5), sy=h*(.25+r()*.15);
+  ctx.fillStyle=radial(ctx,sx,sy,w*.5,[[0,"rgba(255,246,228,.85)"],[.08,"rgba(255,240,215,.6)"],[1,"rgba(255,240,215,0)"]]);ctx.fillRect(0,0,w,h);
+  const layers=5;
+  for(let L=0;L<layers;L++){
+    const t=L/(layers-1), base=h*(.42+t*.42), amp=h*(.16-t*.08);
+    let pts=[];const n=64;let y=base,v=0;
+    for(let i=0;i<=n;i++){v+= (r()-.5)*amp*.35; v*=.86; pts.push([i/n*w, base - amp*.5*Math.sin(i/n*Math.PI*(1+L*.3)+r()*0.05+L) + v]);}
+    ctx.beginPath();ctx.moveTo(0,h);pts.forEach(p=>ctx.lineTo(p[0],p[1]));ctx.lineTo(w,h);ctx.closePath();
+    const c=mix(mix(pal[0],pal[1],.5),pal[2],Math.pow(t,1.3));
+    ctx.fillStyle=grad(ctx,0,base-amp,0,h,[[0,rgb(c)],[1,rgb(mix(c,pal[2],.35))]]);ctx.fill();
+    ctx.fillStyle=grad(ctx,0,base-amp*.2,0,base+amp*.9,[[0,"rgba(240,236,226,0)"],[1,`rgba(240,236,226,${.22-t*.04})`]]);
+    ctx.fillRect(0,base-amp*.2,w,amp*1.1);
+  }
+}
+function wedding(ctx,w,h,r){
+  const warm=r()>.4;
+  ctx.fillStyle=grad(ctx,0,0,w,h,warm?[[0,"#3a2f26"],[.6,"#6c5845"],[1,"#2a231d"]]:[[0,"#2b2d27"],[.6,"#5d5f4f"],[1,"#22231e"]]);ctx.fillRect(0,0,w,h);
+  ctx.globalCompositeOperation="lighter";
+  const n=34+Math.floor(r()*20);
+  for(let i=0;i<n;i++){
+    const x=r()*w,y=r()*h*.75,rad=w*(.025+r()*.07),a=.05+r()*.14;
+    const col=warm?[255,205+r()*40,150+r()*50]:[230+r()*25,225,200];
+    ctx.fillStyle=radial(ctx,x,y,rad,[[0,rgb(col,a)],[.75,rgb(col,a*.9)],[1,rgb(col,0)]]);
+    ctx.beginPath();ctx.arc(x,y,rad,0,7);ctx.fill();
+  }
+  ctx.globalCompositeOperation="source-over";
+  // two soft figures
+  const cx=w*(.38+r()*.24), fy=h*.42, s=h*.11;
+  [[-.55,1],[.55,.94]].forEach(([dx,k],i)=>{
+    const x=cx+dx*s*1.5, hy=fy+(1-k)*s*2;
+    ctx.fillStyle=i===0? "rgba(240,232,218,.88)":"rgba(24,22,19,.9)";
+    ctx.beginPath();ctx.ellipse(x,hy,s*.36*k,s*.44*k,0,0,7);ctx.fill();
+    ctx.beginPath();ctx.moveTo(x-s*.5,hy+s*.5);
+    ctx.bezierCurveTo(x-s*(i?1.1:1.5),hy+s*2.2,x-s*(i?1.2:2.4),h*1.02,x-s*(i?1.2:2.4),h);
+    ctx.lineTo(x+s*(i?1.2:2.4),h);ctx.bezierCurveTo(x+s*(i?1.2:2.4),h*1.02,x+s*(i?1.1:1.5),hy+s*2.2,x+s*.5,hy+s*.5);ctx.closePath();ctx.fill();
+  });
+  ctx.fillStyle=radial(ctx,w*.15,h*.05,w*.9,[[0,warm?"rgba(255,200,140,.28)":"rgba(255,245,220,.2)"],[1,"rgba(0,0,0,0)"]]);ctx.fillRect(0,0,w,h);
+}
+function portrait(ctx,w,h,r){
+  const bgs=[[[88,92,84],[42,44,40]],[[120,108,92],[52,46,40]],[[74,80,82],[32,35,37]]];const b=bgs[Math.floor(r()*bgs.length)];
+  ctx.fillStyle=rgb(b[1]);ctx.fillRect(0,0,w,h);
+  for(let i=0;i<9;i++){const x=r()*w,y=r()*h,rad=w*(.3+r()*.5);ctx.fillStyle=radial(ctx,x,y,rad,[[0,rgb(mix(b[0],[255,255,255],r()*.15),.35)],[1,rgb(b[0],0)]]);ctx.fillRect(0,0,w,h);}
+  const lx=r()>.5?w*.2:w*.8;
+  ctx.fillStyle=radial(ctx,lx,h*.3,w*.9,[[0,"rgba(255,244,226,.28)"],[1,"rgba(0,0,0,0)"]]);ctx.fillRect(0,0,w,h);
+  const cx=w*(.44+r()*.12), hy=h*.4, s=w*.16;
+  ctx.save();
+  ctx.beginPath();
+  ctx.ellipse(cx,hy,s*.78,s,(r()-.5)*.15,0,7);
+  ctx.moveTo(cx-s*.35,hy+s*.85);ctx.lineTo(cx-s*.38,hy+s*1.35);
+  ctx.bezierCurveTo(cx-s*2.4,hy+s*1.6,cx-s*2.9,h*.9,cx-s*3.1,h);ctx.lineTo(cx+s*3.1,h);
+  ctx.bezierCurveTo(cx+s*2.9,h*.9,cx+s*2.4,hy+s*1.6,cx+s*.38,hy+s*1.35);ctx.lineTo(cx+s*.35,hy+s*.85);ctx.closePath();
+  ctx.fillStyle=grad(ctx,lx<w/2?cx-s*2:cx+s*2,0,lx<w/2?cx+s*2:cx-s*2,0,[[0,"#7a6c5e"],[.35,"#3b332c"],[1,"#141210"]]);ctx.fill();
+  ctx.restore();
+  ctx.fillStyle=radial(ctx,w/2,h/2,Math.max(w,h)*.75,[[.55,"rgba(0,0,0,0)"],[1,"rgba(0,0,0,.45)"]]);ctx.fillRect(0,0,w,h);
+}
+function commercial(ctx,w,h,r){
+  const sets=[[[206,198,180],[150,140,120]],[[188,196,184],[120,132,118]],[[214,190,172],[160,128,108]],[[60,62,58],[30,31,29]]];const c=sets[Math.floor(r()*sets.length)];
+  const hor=h*(.58+r()*.1);
+  ctx.fillStyle=grad(ctx,0,0,0,hor,[[0,rgb(mix(c[0],[255,255,255],.12))],[1,rgb(c[0])]]);ctx.fillRect(0,0,w,hor);
+  ctx.fillStyle=grad(ctx,0,hor,0,h,[[0,rgb(mix(c[0],c[1],.3))],[1,rgb(c[1])]]);ctx.fillRect(0,hor,w,h-hor);
+  ctx.fillStyle=grad(ctx,0,hor-h*.06,0,hor+h*.06,[[0,rgb(c[0],0)],[.5,rgb(mix(c[0],c[1],.15),.9)],[1,rgb(c[1],0)]]);ctx.fillRect(0,hor-h*.06,w,h*.12);
+  const objs=2+Math.floor(r()*2);const startX=w*(.22+r()*.1);const gap=w*.6/objs;
+  for(let i=0;i<objs;i++){
+    const x=startX+i*gap+r()*gap*.3, bw=w*(.1+r()*.08), bh=h*(.16+r()*.22), y=hor+h*(.05+r()*.08);
+    const tone=mix(c[1],[30+r()*200,30+r()*120,30+r()*80],.5+r()*.4);
+    ctx.fillStyle="rgba(0,0,0,.22)";ctx.beginPath();ctx.ellipse(x+bw*.9,y,bw*1.05,bw*.16,0,0,7);ctx.fill();
+    const kind=Math.floor(r()*3);
+    ctx.fillStyle=grad(ctx,x-bw/2,0,x+bw/2,0,[[0,rgb(mix(tone,[255,255,255],.35))],[.35,rgb(tone)],[1,rgb(mix(tone,[0,0,0],.45))]]);
+    if(kind===2){ctx.beginPath();ctx.arc(x,y-bw*.5,bw*.5,0,7);ctx.fill();}
+    else{
+      ctx.beginPath();
+      if(kind===0){const nw=bw*.28;ctx.moveTo(x-bw/2,y);ctx.lineTo(x-bw/2,y-bh*.7);ctx.quadraticCurveTo(x-bw/2,y-bh*.82,x-nw/2,y-bh*.86);ctx.lineTo(x-nw/2,y-bh);ctx.lineTo(x+nw/2,y-bh);ctx.lineTo(x+nw/2,y-bh*.86);ctx.quadraticCurveTo(x+bw/2,y-bh*.82,x+bw/2,y-bh*.7);ctx.lineTo(x+bw/2,y);}
+      else{ctx.rect(x-bw/2,y-bh*.6,bw,bh*.6);}
+      ctx.closePath();ctx.fill();
+      ctx.fillStyle="rgba(0,0,0,.18)";ctx.beginPath();ctx.ellipse(x,y,bw/2,bw*.07,0,0,Math.PI);ctx.fill();
+    }
+  }
+  ctx.fillStyle=radial(ctx,w*.2,h*.1,w,[[0,"rgba(255,255,255,.18)"],[1,"rgba(255,255,255,0)"]]);ctx.fillRect(0,0,w,h);
+}
+function addGrain(ctx,w,h,seed){
+  const r=rng(seed+99), id=ctx.getImageData(0,0,w,h), d=id.data;
+  for(let i=0;i<d.length;i+=4){const n=(r()-.5)*18;d[i]+=n;d[i+1]+=n;d[i+2]+=n;}
+  ctx.putImageData(id,0,0);
+}
+const painters={landscape,wedding,portrait,commercial};
+function paint(canvas,kind,seed,ratio,width){
+  const w=width, h=Math.round(width*ratio);
+  canvas.width=w;canvas.height=h;
+  const ctx=canvas.getContext("2d");
+  painters[kind](ctx,w,h,rng(seed));
+  try{addGrain(ctx,w,h,seed);}catch(e){}
+}
+
+/* ---------- Gallery data ---------- */
+const PHOTOS=[
+ {k:"wedding",s:3,r:1.4,sr:"Prvi ples",en:"First dance",x:"35 mm · f/1.4 · 1/160 s · ISO 3200"},
+ {k:"landscape",s:21,r:.68,sr:"Jutro na Tari",en:"Morning on Tara",x:"70 mm · f/8 · 1/200 s · ISO 100"},
+ {k:"portrait",s:7,r:1.25,sr:"Portret u studiju",en:"Studio portrait",x:"85 mm · f/2 · 1/200 s · ISO 100"},
+ {k:"commercial",s:5,r:1,sr:"Kozmetika, studio",en:"Cosmetics, studio",x:"100 mm · f/11 · 1/160 s · ISO 100"},
+ {k:"wedding",s:14,r:.75,sr:"Večernja proslava",en:"Evening celebration",x:"50 mm · f/1.8 · 1/125 s · ISO 2500"},
+ {k:"portrait",s:19,r:1.4,sr:"Porodični portret",en:"Family portrait",x:"50 mm · f/2.8 · 1/250 s · ISO 200"},
+ {k:"landscape",s:8,r:1.3,sr:"Magla nad Dunavom",en:"Mist over the Danube",x:"35 mm · f/5.6 · 1/250 s · ISO 100"},
+ {k:"commercial",s:12,r:1.3,sr:"Bočice, katalog",en:"Bottles, catalogue",x:"90 mm · f/13 · 1/125 s · ISO 100"},
+ {k:"wedding",s:27,r:1.2,sr:"Ceremonija",en:"Ceremony",x:"85 mm · f/2 · 1/320 s · ISO 800"},
+ {k:"landscape",s:33,r:.62,sr:"Suvobor u sumrak",en:"Suvobor at dusk",x:"24 mm · f/11 · 1/30 s · ISO 100"},
+ {k:"portrait",s:41,r:1.3,sr:"Poslovni portret",en:"Business portrait",x:"85 mm · f/4 · 1/200 s · ISO 100"},
+ {k:"commercial",s:23,r:.8,sr:"Proizvod na pozadini",en:"Product on backdrop",x:"60 mm · f/8 · 1/160 s · ISO 100"}
+];
+const grid=document.getElementById("grid");
+PHOTOS.forEach((p,i)=>{
+  const b=document.createElement("button");b.type="button";b.className="tile";b.dataset.cat=p.k;b.dataset.i=i;
+  b.innerHTML=`<div class="frame"><canvas width="10" height="${Math.round(10*p.r)}"></canvas></div><div class="cap"><span></span><span class="mono"></span></div>`;
+  grid.appendChild(b);
+  b.addEventListener("click",()=>openLb(i));
+});
+function renderCaptions(){
+  grid.querySelectorAll(".tile").forEach(b=>{const p=PHOTOS[b.dataset.i];const c=b.querySelectorAll(".cap span");c[0].textContent=p[lang];c[1].textContent=p.x;b.setAttribute("aria-label",p[lang]);});
+  if(lb.open) showLb();
+}
+function paintAll(){
+  grid.querySelectorAll(".tile canvas").forEach((c,i)=>{const p=PHOTOS[i];paint(c,p.k,p.s,p.r,640);});
+  document.querySelectorAll(".hero canvas").forEach(c=>paint(c,c.dataset.kind,+c.dataset.seed,+c.dataset.ratio,720));
+}
+
+/* filters */
+let filter="all";
+document.querySelectorAll(".filters button").forEach(btn=>btn.addEventListener("click",()=>{
+  filter=btn.dataset.filter;
+  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",String(x===btn)));
+  grid.querySelectorAll(".tile").forEach(t=>t.hidden=!(filter==="all"||t.dataset.cat===filter));
+}));
+
+/* lightbox */
+const lb=document.getElementById("lb"), lbC=document.getElementById("lbCanvas");
+let cur=0;
+const visible=()=>[...grid.querySelectorAll(".tile")].filter(t=>!t.hidden).map(t=>+t.dataset.i);
+function showLb(){
+  const p=PHOTOS[cur], v=visible();
+  paint(lbC,p.k,p.s,p.r,1200);
+  document.getElementById("lbCap").textContent=p[lang]+" · "+p.x;
+  document.getElementById("lbCount").textContent=(v.indexOf(cur)+1)+" / "+v.length;
+}
+function openLb(i){cur=i;showLb();lb.showModal();}
+function step(d){const v=visible();cur=v[(v.indexOf(cur)+d+v.length)%v.length];showLb();}
+document.getElementById("lbClose").onclick=()=>lb.close();
+document.getElementById("lbPrev").onclick=()=>step(-1);
+document.getElementById("lbNext").onclick=()=>step(1);
+lb.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1);});
+lb.addEventListener("click",e=>{if(e.target===lb||e.target.classList.contains("lb-stage"))lb.close();});
+
+/* ---------- Contact form ---------- */
+const form=document.getElementById("form"), status=document.getElementById("status"), preview=document.getElementById("preview");
+const typeSel=document.getElementById("f-type");
+document.querySelectorAll("[data-pick]").forEach(a=>a.addEventListener("click",()=>{typeSel.value=a.dataset.pick;updateLinks();}));
+function message(){
+  const f=Object.fromEntries(new FormData(form));
+  const typeLabel=f.type?typeSel.options[typeSel.selectedIndex].text:"";
+  const lines=[t("m.hello"),"",f.msg||"",""];
+  lines.push(`${t("m.name")}: ${f.name||""}`,`${t("m.contact")}: ${f.contact||""}`);
+  if(typeLabel)lines.push(`${t("m.type")}: ${typeLabel}`);
+  if(f.date)lines.push(`${t("m.date")}: ${f.date.split("-").reverse().join(".")}.`);
+  if(f.place)lines.push(`${t("m.place")}: ${f.place}`);
+  return lines.join("\n");
+}
+function updateLinks(){
+  const m=message();
+  document.getElementById("sendWa").href=`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(m)}`;
+  document.getElementById("sendMail").href=`mailto:${EMAIL}?subject=${encodeURIComponent(t("m.subject"))}&body=${encodeURIComponent(m)}`;
+}
+form.addEventListener("input",()=>{updateLinks();form.querySelectorAll(".field.invalid").forEach(fl=>{const el=fl.querySelector("input,select,textarea");if(el.value.trim()){fl.classList.remove("invalid");fl.querySelector(".err").hidden=true;}});});
+form.addEventListener("submit",e=>e.preventDefault());
+function validate(){
+  let ok=true;
+  form.querySelectorAll("[required]").forEach(el=>{
+    const fl=el.closest(".field"), err=fl.querySelector(".err"), bad=!el.value.trim();
+    fl.classList.toggle("invalid",bad); err.hidden=!bad; err.textContent=t("f.req"); if(bad&&ok){ok=false;el.focus();}
+  });
+  return ok;
+}
+function say(msg,show){status.textContent=msg;status.hidden=false;preview.hidden=!show;if(show)preview.textContent=message();}
+document.getElementById("sendWa").addEventListener("click",e=>{if(!validate()){e.preventDefault();say(t("f.fix"),false);return;}updateLinks();say(t("f.waOk"),true);});
+document.getElementById("sendMail").addEventListener("click",e=>{if(!validate()){e.preventDefault();say(t("f.fix"),false);return;}updateLinks();say(t("f.mailOk"),true);});
+async function copyText(txt){try{await navigator.clipboard.writeText(txt);return true;}catch(e){return false;}}
+document.getElementById("copyMsg").addEventListener("click",async()=>{const ok=await copyText(message());say(ok?t("f.copied"):t("f.copyFail"),true);});
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",async()=>{
+  const el=document.getElementById(b.dataset.copy);const ok=await copyText(el.textContent.trim());
+  if(ok){b.textContent=t("ct.copied");setTimeout(()=>b.textContent=t("ct.copy"),1600);}
+  else{const s=getSelection(),rg=document.createRange();rg.selectNodeContents(el);s.removeAllRanges();s.addRange(rg);}
+}));
+
+applyLang();
+paintAll();
+})();
+</script>
+
+</body>
+</html>
